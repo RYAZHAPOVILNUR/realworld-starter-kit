@@ -1,0 +1,7 @@
+ @if (articles$ | async; as articles) {
+   @for (article of articles.articles; track $index ) {
+     <div class="articles-list-wrapper">
+       <app-article-item [article]="article"></app-article-item>
+     </div>
+   }
+ }

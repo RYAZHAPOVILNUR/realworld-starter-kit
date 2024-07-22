@@ -1,12 +1,13 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import {ArticlesModel} from "../common/articles.model";
 
 @Injectable({providedIn: 'root'})
 export class ArticlesService {
     private readonly http = inject(HttpClient);
 
-    getArticles(): Observable<any> {
-        return this.http.get('https://api.realworld.io/api/articles?limit=10&offset=0')
+    public getArticles(): Observable<ArticlesModel> {
+        return this.http.get<ArticlesModel>('https://api.realworld.io/api/articles');
     }
 }
